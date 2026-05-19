@@ -1,0 +1,138 @@
+2026-05-19 09:19:34 [INFO] __main__: Initializing application session...
+2026-05-19 09:19:34 [INFO] database.db_manager: Database migrations complete
+2026-05-19 09:23:48 [INFO] __main__: Initializing application session...
+2026-05-19 09:23:48 [INFO] database.db_manager: Database migrations complete
+2026-05-19 09:24:44 [INFO] ml.trainer: Starting model training pipeline...
+2026-05-19 09:24:46 [INFO] ml.trainer:   BTC/USDT: 1000 candles
+2026-05-19 09:24:53 [INFO] ml.trainer:   ETH/USDT: 1000 candles
+2026-05-19 09:24:56 [INFO] ml.trainer:   BNB/USDT: 1000 candles
+2026-05-19 09:25:01 [INFO] ml.trainer:   SOL/USDT: 1000 candles
+2026-05-19 09:25:04 [INFO] ml.trainer:   XRP/USDT: 1000 candles
+2026-05-19 09:25:07 [INFO] ml.trainer:   ADA/USDT: 1000 candles
+2026-05-19 09:25:11 [INFO] ml.trainer:   DOGE/USDT: 1000 candles
+2026-05-19 09:25:15 [INFO] ml.trainer:   AVAX/USDT: 1000 candles
+2026-05-19 09:25:18 [INFO] ml.trainer:   DOT/USDT: 1000 candles
+2026-05-19 09:25:21 [INFO] ml.trainer:   LINK/USDT: 1000 candles
+2026-05-19 09:25:24 [INFO] ml.trainer:   MATIC/USDT: 1000 candles
+2026-05-19 09:25:26 [INFO] ml.trainer:   UNI/USDT: 1000 candles
+2026-05-19 09:25:29 [INFO] ml.trainer:   LTC/USDT: 1000 candles
+2026-05-19 09:25:33 [INFO] ml.trainer:   ATOM/USDT: 1000 candles
+2026-05-19 09:25:36 [INFO] ml.trainer:   FIL/USDT: 1000 candles
+2026-05-19 09:25:39 [INFO] ml.trainer:   NEAR/USDT: 1000 candles
+2026-05-19 09:25:41 [INFO] ml.trainer:   APT/USDT: 1000 candles
+2026-05-19 09:25:44 [INFO] ml.trainer:   ARB/USDT: 1000 candles
+2026-05-19 09:25:46 [INFO] ml.trainer:   OP/USDT: 1000 candles
+2026-05-19 09:25:49 [INFO] ml.trainer:   INJ/USDT: 1000 candles
+2026-05-19 09:25:51 [INFO] ml.trainer: Training dataset: 18080 samples, 38 features
+2026-05-19 09:25:51 [INFO] ml.trainer: Swing label balance: {0: 11779, 1: 6301}
+2026-05-19 09:25:51 [ERROR] __main__: Training failed: 
+XGBoost Library (libxgboost.dylib) could not be loaded.
+Likely causes:
+  * OpenMP runtime is not installed
+    - vcomp140.dll or libgomp-1.dll for Windows
+    - libomp.dylib for Mac OSX
+    - libgomp.so for Linux and other UNIX-like OSes
+    Mac OSX users: Run `brew install libomp` to install OpenMP runtime.
+
+  * You are running 32-bit Python on a 64-bit OS
+
+Error message(s): ["dlopen(/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\n  Referenced from: <5A4ADBF3-2060-3ECB-AB2B-F8A248DDA0A7> /Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib\n  Reason: tried: '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file)"]
+Traceback (most recent call last):
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/app.py", line 110, in run_training
+    success = train_all_models(progress_callback=training_callback)
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/ml/trainer.py", line 106, in train_all_models
+    _train_swing_classifier(X, y_swing, feature_names)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/ml/trainer.py", line 125, in _train_swing_classifier
+    import xgboost as xgb
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/__init__.py", line 6, in <module>
+    from . import tracker  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/tracker.py", line 9, in <module>
+    from .core import _LIB, _check_call, _deprecate_positional_args, make_jcargs
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/core.py", line 309, in <module>
+    _LIB = _load_lib()
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/core.py", line 273, in _load_lib
+            raise XGBoostError(f"""
+    ...<11 lines>...
+    """)
+xgboost.core.XGBoostError: 
+XGBoost Library (libxgboost.dylib) could not be loaded.
+Likely causes:
+  * OpenMP runtime is not installed
+    - vcomp140.dll or libgomp-1.dll for Windows
+    - libomp.dylib for Mac OSX
+    - libgomp.so for Linux and other UNIX-like OSes
+    Mac OSX users: Run `brew install libomp` to install OpenMP runtime.
+
+  * You are running 32-bit Python on a 64-bit OS
+
+Error message(s): ["dlopen(/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\n  Referenced from: <5A4ADBF3-2060-3ECB-AB2B-F8A248DDA0A7> /Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib\n  Reason: tried: '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file)"]
+
+2026-05-19 11:48:11 [INFO] ml.trainer: Starting model training pipeline...
+2026-05-19 11:48:11 [INFO] ml.trainer:   BTC/USDT: 1000 candles
+2026-05-19 11:48:15 [INFO] ml.trainer:   ETH/USDT: 1000 candles
+2026-05-19 11:48:18 [INFO] ml.trainer:   BNB/USDT: 1000 candles
+2026-05-19 11:48:22 [INFO] ml.trainer:   SOL/USDT: 1000 candles
+2026-05-19 11:48:25 [INFO] ml.trainer:   XRP/USDT: 1000 candles
+2026-05-19 11:48:28 [INFO] ml.trainer:   ADA/USDT: 1000 candles
+2026-05-19 11:48:31 [INFO] ml.trainer:   DOGE/USDT: 1000 candles
+2026-05-19 11:48:33 [INFO] ml.trainer:   AVAX/USDT: 1000 candles
+2026-05-19 11:48:36 [INFO] ml.trainer:   DOT/USDT: 1000 candles
+2026-05-19 11:48:39 [INFO] ml.trainer:   LINK/USDT: 1000 candles
+2026-05-19 11:48:41 [INFO] ml.trainer:   MATIC/USDT: 1000 candles
+2026-05-19 11:48:43 [INFO] ml.trainer:   UNI/USDT: 1000 candles
+2026-05-19 11:48:45 [INFO] ml.trainer:   LTC/USDT: 1000 candles
+2026-05-19 11:48:49 [INFO] ml.trainer:   ATOM/USDT: 1000 candles
+2026-05-19 11:48:51 [INFO] ml.trainer:   FIL/USDT: 1000 candles
+2026-05-19 11:48:54 [INFO] ml.trainer:   NEAR/USDT: 1000 candles
+2026-05-19 11:48:56 [INFO] ml.trainer:   APT/USDT: 1000 candles
+2026-05-19 11:48:59 [INFO] ml.trainer:   ARB/USDT: 1000 candles
+2026-05-19 11:49:01 [INFO] ml.trainer:   OP/USDT: 1000 candles
+2026-05-19 11:49:03 [INFO] ml.trainer:   INJ/USDT: 1000 candles
+2026-05-19 11:49:05 [INFO] ml.trainer: Training dataset: 18080 samples, 38 features
+2026-05-19 11:49:05 [INFO] ml.trainer: Swing label balance: {0: 11831, 1: 6249}
+2026-05-19 11:49:05 [ERROR] __main__: Training failed: 
+XGBoost Library (libxgboost.dylib) could not be loaded.
+Likely causes:
+  * OpenMP runtime is not installed
+    - vcomp140.dll or libgomp-1.dll for Windows
+    - libomp.dylib for Mac OSX
+    - libgomp.so for Linux and other UNIX-like OSes
+    Mac OSX users: Run `brew install libomp` to install OpenMP runtime.
+
+  * You are running 32-bit Python on a 64-bit OS
+
+Error message(s): ["dlopen(/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\n  Referenced from: <5A4ADBF3-2060-3ECB-AB2B-F8A248DDA0A7> /Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib\n  Reason: tried: '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file)"]
+Traceback (most recent call last):
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/app.py", line 110, in run_training
+    success = train_all_models(progress_callback=training_callback)
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/ml/trainer.py", line 106, in train_all_models
+    _train_swing_classifier(X, y_swing, feature_names)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/ml/trainer.py", line 125, in _train_swing_classifier
+    import xgboost as xgb
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/__init__.py", line 6, in <module>
+    from . import tracker  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/tracker.py", line 9, in <module>
+    from .core import _LIB, _check_call, _deprecate_positional_args, make_jcargs
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/core.py", line 309, in <module>
+    _LIB = _load_lib()
+  File "/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/core.py", line 273, in _load_lib
+            raise XGBoostError(f"""
+    ...<11 lines>...
+    """)
+xgboost.core.XGBoostError: 
+XGBoost Library (libxgboost.dylib) could not be loaded.
+Likely causes:
+  * OpenMP runtime is not installed
+    - vcomp140.dll or libgomp-1.dll for Windows
+    - libomp.dylib for Mac OSX
+    - libgomp.so for Linux and other UNIX-like OSes
+    Mac OSX users: Run `brew install libomp` to install OpenMP runtime.
+
+  * You are running 32-bit Python on a 64-bit OS
+
+Error message(s): ["dlopen(/Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\n  Referenced from: <5A4ADBF3-2060-3ECB-AB2B-F8A248DDA0A7> /Users/rajender.vanamala/WORK/DEV/nishanth/crypto_assistant/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib\n  Reason: tried: '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/usr/local/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/libomp/lib/libomp.dylib' (no such file)"]
+
